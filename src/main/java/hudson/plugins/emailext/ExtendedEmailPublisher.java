@@ -571,6 +571,15 @@ public class ExtendedEmailPublisher extends Notifier implements MatrixAggregatab
                 excludedRecipients.add(recipient);
             }
         }
+
+	for(InternetAddress recipient : recipientAddresses) {
+	    context.getListener().getLogger().println("Checking '"+recipient.getAddress()+"' against '@erlang.org' and '@erix.ericsson.com' to see if they are excluded");
+	    if (recipient.getAddress().endsWith("@erlang.org") ||
+		recipient.getAddress().endsWith("@erix.ericsson.com"))
+		continue;
+	    excludedRecipients.add(recipient);
+        }
+	
         recipientAddresses.removeAll(excludedRecipients);
         ccAddresses.removeAll(excludedRecipients);
 
