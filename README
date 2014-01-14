@@ -1,1 +1,4 @@
 Please see https://wiki.jenkins-ci.org/display/JENKINS/Email-ext+plugin for information about the email-ext plugin.
+
+
+To compile use "mvn install -Dmaven.test.skip=true" which will create "target/email-ext.hpi" that can be given to jenkins as a plugin.
